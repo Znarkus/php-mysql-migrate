@@ -17,6 +17,15 @@
  * limitations under the License.
  */
 
+/*
+ * HTTP ACCESS for migrate
+ * with access token set in config
+ */
+if(isset($_GET['arg1']) && isset($_GET['token']) && $_GET['token'] == HTTP_TOKEN){
+  $argv[0] = 'migrate.php';
+  $argv[1] = $_GET['arg1'];
+}
+
 /**
  * Initialize your database parameters:
  *    cp config.php.sample config.php

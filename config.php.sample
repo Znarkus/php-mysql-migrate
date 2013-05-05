@@ -6,4 +6,5 @@ define('DBNAME', '');
 define('DBUSERNAME',  '');
 define('DBPASSWORD',  '');
 define('DBADDRESS',  '');
+define('HTTP_TOKEN', '');
 
