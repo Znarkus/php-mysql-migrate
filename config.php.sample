@@ -1,6 +1,6 @@
 <?php
 
-define('MIGRATIONS_DIR',  'migrations/');
+define('MIGRATIONS_DIR',  dirname(__FILE__) . '/migrations/');
 
 define('DBNAME', '');
 define('DBUSERNAME',  '');

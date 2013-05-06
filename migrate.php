@@ -17,13 +17,19 @@
  * limitations under the License.
  */
 
+require_once('config.php');
+
 /*
  * HTTP ACCESS for migrate
  * with access token set in config
  */
-if(isset($_GET['arg1']) && isset($_GET['token']) && $_GET['token'] == HTTP_TOKEN){
-  $argv[0] = 'migrate.php';
-  $argv[1] = $_GET['arg1'];
+if(isset($_GET['arg1'])){
+  if(isset($_GET['token']) && $_GET['token'] == HTTP_TOKEN) {
+    $argv[0] = 'migrate.php';
+    $argv[1] = $_GET['arg1'];
+  } else {
+    exit("Invalid Access token");
+  }
 }
 
 /**
@@ -43,8 +49,7 @@ if (count($argv) <= 1) {
   exit;
 }
 
-require_once('config.php');
-@define('MIGRATE_VERSION_FILE', '.version');
+@define('MIGRATE_VERSION_FILE', dirname(__FILE__) . '/.version');
 @define('MIGRATE_FILE_PREFIX', 'migrate-');
 @define('MIGRATE_FILE_POSTFIX', '.php');
 @define('DEBUG', false);
