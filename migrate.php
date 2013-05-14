@@ -28,6 +28,7 @@ if(isset($_GET['arg1'])){
     $argv[0] = 'migrate.php';
     $argv[1] = $_GET['arg1'];
   } else {
+    header("HTTP/1.0 403 Forbidden");
     exit("Invalid Access token");
   }
 }
